@@ -26,8 +26,7 @@ public class Splash extends AppCompatActivity implements AuthRepository.Anonymou
 
         if (authRepository.isUserSignedIn()) {
             navigateToDashboard();
-        }
-        else {
+        } else {
             authRepository.signAnonymously(this);
         }
     }
