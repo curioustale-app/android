@@ -1,19 +1,42 @@
 package app.curioustale.curioustale.ui.home;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import app.curioustale.curioustale.models.Question;
+import app.curioustale.curioustale.repo.questions.FirebaseQuestionRepository;
+import app.curioustale.curioustale.repo.questions.QuestionRepository;
+
 public class HomeViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private final QuestionRepository questionRepository;
+    private final MutableLiveData<Exception> error;
+    private MutableLiveData<Question> question;
 
     public HomeViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        error = new MutableLiveData<>();
+        questionRepository = new FirebaseQuestionRepository();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public MutableLiveData<Exception> onError() {
+        return error;
+    }
+
+    public MutableLiveData<Question> getQuestionForTheDay(String today) {
+        if (question != null) return question;
+
+        question = new MutableLiveData<>();
+        questionRepository.getQuestionForTheDay(today, new QuestionRepository.QuestionForTheDayResultListener() {
+            @Override
+            public void onQuestionResult(Question q) {
+                question.setValue(q);
+            }
+
+            @Override
+            public void onQuestionError(Exception e) {
+                error.setValue(e);
+            }
+        });
+        return question;
     }
 }

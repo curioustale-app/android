@@ -3,7 +3,7 @@ package app.curioustale.curioustale.repo.auth;
 public interface AuthRepository<T> {
     boolean isUserSignedIn();
 
-    void signAnonymously(AnonymousSignInListener<T> listener);
+    void signInAnonymously(AnonymousSignInListener<T> listener);
 
     T getCurrentUser();
 

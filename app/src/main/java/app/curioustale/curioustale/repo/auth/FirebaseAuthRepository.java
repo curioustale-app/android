@@ -16,7 +16,7 @@ public class FirebaseAuthRepository implements AuthRepository<FirebaseUser> {
     }
 
     @Override
-    public void signAnonymously(AnonymousSignInListener<FirebaseUser> listener) {
+    public void signInAnonymously(AnonymousSignInListener<FirebaseUser> listener) {
         firebaseAuth.signInAnonymously()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
