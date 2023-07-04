@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_my_stories"
         android:name="app.curioustale.curioustale.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_my_stories"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment

@@ -1,6 +1,0 @@
-<resources>
-    <!-- Base application theme. -->
-    <style name="Theme.CuriousTale" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- required -->
-    </style>
-</resources>

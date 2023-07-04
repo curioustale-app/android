@@ -33,8 +33,8 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         String today = PreferenceUtils.getToday(requireContext());
-        viewModel.onError().observe(this, this::toastError);
-        viewModel.getQuestionForTheDay(today).observe(this, this::setQuestionForTheDay);
+        viewModel.onError().observe(getViewLifecycleOwner(), this::toastError);
+        viewModel.getQuestionForTheDay(today).observe(getViewLifecycleOwner(), this::setQuestionForTheDay);
         return binding.getRoot();
     }
 
@@ -45,7 +45,15 @@ public class HomeFragment extends Fragment {
     }
 
     private void setQuestionForTheDay(Question question) {
-        binding.textHome.setText(question.getTitle());
+        if (question == null) {
+            handleNoQuestionForDay();
+            return;
+        }
+        binding.tvQuestion.setText(question.getTitle());
+    }
+
+    private void handleNoQuestionForDay() {
+        Snackbar.make(binding.getRoot(), "No Question for today!", BaseTransientBottomBar.LENGTH_SHORT).show();
     }
 
     @Override

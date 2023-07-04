@@ -1,3 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+    <item name="padding" type="dimen">20dp</item>
+    <item name="radius" type="dimen">10dp</item>
+    <item name="elevation" type="dimen">10dp</item>
+    <item name="margin" type="dimen">10dp</item>
 </resources>
