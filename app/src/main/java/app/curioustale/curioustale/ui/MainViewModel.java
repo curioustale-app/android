@@ -1,4 +1,4 @@
-package app.curioustale.curioustale.ui.home;
+package app.curioustale.curioustale.ui;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -7,13 +7,12 @@ import app.curioustale.curioustale.models.Question;
 import app.curioustale.curioustale.repo.questions.FirebaseQuestionRepository;
 import app.curioustale.curioustale.repo.questions.QuestionRepository;
 
-public class HomeViewModel extends ViewModel {
-
+public class MainViewModel extends ViewModel {
     private final QuestionRepository questionRepository;
     private final MutableLiveData<Exception> error;
     private MutableLiveData<Question> question;
 
-    public HomeViewModel() {
+    public MainViewModel() {
         error = new MutableLiveData<>();
         questionRepository = new FirebaseQuestionRepository();
     }
