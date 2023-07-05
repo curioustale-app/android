@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    android:paddingBottom="?bottomAppBarStyle"
+    android:paddingBottom="@dimen/page_bottom_padding"
     tools:context=".ui.answer.AnswerFragment">
 
     <LinearLayout
@@ -18,12 +18,13 @@
             android:id="@+id/tv_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp" />
+            android:textSize="@dimen/text_medium" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
             android:padding="@dimen/padding"
             android:layout_marginTop="@dimen/margin"
             android:hint="@string/start_typing_hint"

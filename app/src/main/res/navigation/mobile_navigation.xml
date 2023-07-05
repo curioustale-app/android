@@ -11,8 +11,8 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/from_home_to_answer"
-            app:destination="@id/answer_fragment" />
+            android:id="@+id/from_home_to_question"
+            app:destination="@id/question_fragment" />
     </fragment>
 
     <fragment
@@ -32,4 +32,14 @@
         android:name="app.curioustale.curioustale.ui.answer.AnswerFragment"
         android:label="@string/title_answer"
         tools:layout="@layout/fragment_answer" />
+
+    <fragment
+        android:id="@+id/question_fragment"
+        android:name="app.curioustale.curioustale.ui.question.QuestionFragment"
+        android:label="@string/title_question"
+        tools:layout="@layout/fragment_question">
+        <action
+            android:id="@+id/from_question_to_answer"
+            app:destination="@id/answer_fragment" />
+    </fragment>
 </navigation>

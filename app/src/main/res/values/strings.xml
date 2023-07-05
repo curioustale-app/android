@@ -5,10 +5,16 @@
     <string name="title_notifications">Notifications</string>
     <string name="anon_acc_create_error">Failed to connect to the servers</string>
     <string name="day_streak_content_desc">day streak</string>
-    <string name="way_to_go">way to go!</string>
-    <string name="start_a_story_btn">start a story</string>
+    <string name="see_my_stories_btn">see my stories</string>
     <string name="submit_story_btn">submit story</string>
     <string name="answer_content_desc">answer</string>
     <string name="start_typing_hint">start typing…</string>
     <string name="title_answer">Answer</string>
+    <string name="day_streak_text">day streak</string>
+    <string name="day_streak_subtitle_text">way to go on the new streak. keep it up on this new achievement</string>
+    <string name="question_of_the_day_text">Question of the day</string>
+    <string name="title_question">Question</string>
+    <string name="see_updates_text">see updates</string>
+    <string name="checkout_btn_text">checkout</string>
+    <string name="start_a_story_btn_text">start a story</string>
 </resources>
