@@ -14,3 +14,11 @@ Android app for curious tale platform
     - answers [arr]
       - user-id
       - answer [string]
+- Users Collections
+  - user-id (firebase auth generated)
+    - answers
+      - question-id (hash of question string md5)
+        - answer [string]
+        - question-id [string]
+        - question [string]
+        - timestamp [date]

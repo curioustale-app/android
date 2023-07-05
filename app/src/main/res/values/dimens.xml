@@ -5,8 +5,6 @@
     <item name="margin" type="dimen">10dp</item>
     <item name="margin_large" type="dimen">20dp</item>
 
-    <item name="page_bottom_padding" type="dimen">50dp</item>
-
     <item name="text_extra_large" type="dimen">40sp</item>
     <item name="text_large" type="dimen">24sp</item>
     <item name="text_medium" type="dimen">18sp</item>

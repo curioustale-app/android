@@ -10,8 +10,4 @@ public interface QuestionRepository {
 
         void onQuestionError(Exception e);
     }
-
-    interface QuestionErrorListener {
-        void error(Exception e);
-    }
 }
