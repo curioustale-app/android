@@ -1,4 +1,4 @@
-package app.curioustale.curioustale.config;
+package app.curioustale.curioustale.utils;
 
 import java.util.Calendar;
 import java.util.Locale;

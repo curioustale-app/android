@@ -1,4 +1,4 @@
-package app.curioustale.curioustale;
+package app.curioustale.curioustale.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,8 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseUser;
 
-import app.curioustale.curioustale.config.FirebaseUtils;
+import app.curioustale.curioustale.R;
+import app.curioustale.curioustale.utils.FirebaseUtils;
 import app.curioustale.curioustale.config.PreferenceUtils;
 import app.curioustale.curioustale.databinding.ActivitySplashBinding;
 import app.curioustale.curioustale.repo.auth.AuthRepository;
