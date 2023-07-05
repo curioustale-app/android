@@ -6,7 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-import app.curioustale.curioustale.config.FirebaseUtils;
+import app.curioustale.curioustale.utils.FirebaseUtils;
 import app.curioustale.curioustale.models.ServerConfig;
 
 public class FirebaseConfigRepository implements ConfigRepository {

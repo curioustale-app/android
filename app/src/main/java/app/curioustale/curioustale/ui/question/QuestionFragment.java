@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 import app.curioustale.curioustale.R;
+import app.curioustale.curioustale.config.Constants;
 import app.curioustale.curioustale.config.PreferenceUtils;
 import app.curioustale.curioustale.databinding.FragmentQuestionBinding;
 import app.curioustale.curioustale.models.Question;
@@ -24,6 +25,7 @@ import app.curioustale.curioustale.ui.MainViewModel;
 public class QuestionFragment extends Fragment {
     private FragmentQuestionBinding binding;
     private MainViewModel viewModel;
+    private Question question;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,11 +50,14 @@ public class QuestionFragment extends Fragment {
     }
 
     private void navigateToAnswerPage() {
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.KEY_QUESTION_TITLE, question.getTitle());
         NavController controller = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
-        controller.navigate(R.id.from_question_to_answer);
+        controller.navigate(R.id.from_question_to_answer, bundle);
     }
 
     private void setQuestionForTheDay(Question question) {
+        this.question = question;
         binding.progress.hide();
         if (question == null) {
             handleNoQuestionForDay();

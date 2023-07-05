@@ -14,7 +14,7 @@
         android:theme="@style/Theme.CuriousTale"
         tools:targetApi="31">
         <activity
-            android:name=".Splash"
+            android:name=".ui.Splash"
             android:exported="true"
             android:theme="@style/Theme.CuriousTale.NoAppBar">
             <intent-filter>
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false" />
 
         <meta-data
