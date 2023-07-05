@@ -1,7 +1,15 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <item name="padding" type="dimen">20dp</item>
     <item name="radius" type="dimen">10dp</item>
     <item name="elevation" type="dimen">10dp</item>
     <item name="margin" type="dimen">10dp</item>
+    <item name="margin_large" type="dimen">20dp</item>
+
+    <item name="page_bottom_padding" type="dimen">50dp</item>
+
+    <item name="text_extra_large" type="dimen">40sp</item>
+    <item name="text_large" type="dimen">24sp</item>
+    <item name="text_medium" type="dimen">18sp</item>
+    <item name="text_small" type="dimen">15sp</item>
+    <item name="text_extra_small" type="dimen">12sp</item>
 </resources>

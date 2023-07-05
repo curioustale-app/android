@@ -2,8 +2,10 @@
     <!-- Base application theme. -->
     <style name="Theme.CuriousTale" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
     </style>
     <style name="Theme.CuriousTale.NoAppBar" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
     </style>
 </resources>

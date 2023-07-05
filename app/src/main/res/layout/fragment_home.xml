@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
@@ -12,29 +13,21 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="?colorSurfaceVariant"
-        android:layout_margin="10dp"
-        android:elevation="@dimen/elevation"
-        app:cardCornerRadius="@dimen/radius"
-        app:contentPadding="@dimen/padding">
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_day_streak"
+            style="@style/Widget.Material3.CardView.Outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="@dimen/margin"
-                android:contentDescription="@string/day_streak_content_desc"
-                android:src="@drawable/ic_day_streak_icon"
-                app:tint="?colorAccent" />
+            android:layout_margin="10dp"
+            android:elevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/radius"
+            app:contentPaddingBottom="40dp"
+            app:contentPaddingLeft="30dp"
+            app:contentPaddingRight="30dp"
+            app:contentPaddingTop="40dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -42,49 +35,74 @@
                     android:id="@+id/tv_day"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="22sp" />
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_extra_large"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_day_streak"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/way_to_go"
-                    android:textSize="20sp" />
+                    android:text="@string/day_streak_text"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/day_streak_subtitle_text"
+                    android:textAlignment="center"
+                    android:textColor="?colorOnSurfaceVariant"
+                    android:textSize="@dimen/text_small" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_my_stories"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="@string/see_my_stories_btn" />
 
             </LinearLayout>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="?colorSurfaceVariant"
-        android:layout_margin="10dp"
-        android:elevation="@dimen/elevation"
-        app:cardCornerRadius="@dimen/radius"
-        app:contentPadding="@dimen/padding">
-
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_question_of_day"
+            style="@style/Widget.Material3.CardView.Outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="@dimen/margin"
+            android:elevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/radius"
+            app:contentPadding="@dimen/padding">
 
-            <TextView
-                android:id="@+id/tv_question"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp" />
+                android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_answer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="@string/start_a_story_btn" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/see_updates_text"
+                    android:textColor="?colorOnSurfaceVariant"
+                    android:textSize="@dimen/text_small" />
 
+                <TextView
+                    android:id="@+id/tv_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/question_of_the_day_text"
+                    android:textSize="@dimen/text_large" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:text="@string/checkout_btn_text"
+                    android:textColor="?colorPrimary"
+                    android:textSize="@dimen/text_small" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>
