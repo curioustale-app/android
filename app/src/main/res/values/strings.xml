@@ -4,10 +4,8 @@
     <string name="title_my_stories">My Stories</string>
     <string name="title_notifications">Notifications</string>
     <string name="anon_acc_create_error">Failed to connect to the servers</string>
-    <string name="day_streak_content_desc">day streak</string>
     <string name="see_my_stories_btn">see my stories</string>
     <string name="submit_story_btn">submit story</string>
-    <string name="answer_content_desc">answer</string>
     <string name="start_typing_hint">start typing…</string>
     <string name="title_answer">Story</string>
     <string name="day_streak_text">day streak</string>

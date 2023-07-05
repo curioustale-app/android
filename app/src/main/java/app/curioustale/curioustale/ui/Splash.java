@@ -10,13 +10,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseUser;
 
 import app.curioustale.curioustale.R;
-import app.curioustale.curioustale.utils.FirebaseUtils;
 import app.curioustale.curioustale.config.PreferenceUtils;
 import app.curioustale.curioustale.databinding.ActivitySplashBinding;
 import app.curioustale.curioustale.repo.auth.AuthRepository;
 import app.curioustale.curioustale.repo.auth.FirebaseAuthRepository;
 import app.curioustale.curioustale.repo.config.ConfigRepository;
 import app.curioustale.curioustale.repo.config.FirebaseConfigRepository;
+import app.curioustale.curioustale.utils.FirebaseUtils;
 
 public class Splash extends AppCompatActivity implements AuthRepository.AnonymousSignInListener<FirebaseUser> {
     private ActivitySplashBinding binding;

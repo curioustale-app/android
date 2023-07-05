@@ -5,7 +5,9 @@ import static java.util.Objects.requireNonNull;
 import java.util.Optional;
 
 public abstract class Either<L, R> {
-    Either() {}
+    Either() {
+        // Unused
+    }
 
     public static <L, R> Either<L, R> left(L value) {
         return new Left<>(value);
@@ -20,7 +22,9 @@ public abstract class Either<L, R> {
     }
 
     public abstract boolean isLeft();
+
     public abstract Optional<L> getLeft();
+
     public abstract Optional<R> getRight();
 
     static class Left<L, R> extends Either<L, R> {

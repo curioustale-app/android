@@ -15,36 +15,36 @@ public class Answer {
         // Required for firebase
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
     public String getQuestion() {
         return question;
     }
 
-    public void setQuestionId(String questionId) {
-        this.questionId = questionId;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public String getQuestionId() {
         return questionId;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
     }
 
     public String getAnswer() {
         return answer;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public Timestamp getTimestamp() {
         return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
     @NonNull

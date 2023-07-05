@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".ui.answer.AnswerFragment">
 
     <LinearLayout
@@ -17,8 +17,8 @@
             android:id="@+id/progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:indeterminate="true" />
+            android:indeterminate="true"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,6 +37,7 @@
                 style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/start_typing_hint"
                 app:boxCornerRadiusBottomEnd="@dimen/radius"
                 app:boxCornerRadiusBottomStart="@dimen/radius"
                 app:boxCornerRadiusTopEnd="@dimen/radius"

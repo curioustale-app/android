@@ -2,8 +2,8 @@ package app.curioustale.curioustale.repo.questions;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import app.curioustale.curioustale.utils.FirebaseUtils;
 import app.curioustale.curioustale.models.Question;
+import app.curioustale.curioustale.utils.FirebaseUtils;
 
 public class FirebaseQuestionRepository implements QuestionRepository {
     private final FirebaseFirestore db;

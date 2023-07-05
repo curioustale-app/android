@@ -63,7 +63,7 @@ public class AnswerFragment extends Fragment {
         binding.btnAnswer.setEnabled(true);
         binding.progress.hide();
 
-        if(either.isRight()) {
+        if (either.isRight()) {
             displayToast(getString(R.string.answer_submit_success));
         } else {
             displayToast(getString(R.string.answer_submit_error));

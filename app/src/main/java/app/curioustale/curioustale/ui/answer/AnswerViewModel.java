@@ -27,6 +27,7 @@ public class AnswerViewModel extends ViewModel {
             public void onAnswerSubmitResult() {
                 answerResult.setValue(Either.right(true));
             }
+
             @Override
             public void onAnswerSubmitError(Exception e) {
                 answerResult.setValue(Either.left(e));

@@ -7,6 +7,7 @@ public interface AnswerRepository {
 
     interface SubmitAnswerResultListener {
         void onAnswerSubmitResult();
+
         void onAnswerSubmitError(Exception e);
     }
 }
