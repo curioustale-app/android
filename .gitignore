@@ -17,3 +17,4 @@ release/
 .idea/
 google-services.json
 gradle/
+assets/

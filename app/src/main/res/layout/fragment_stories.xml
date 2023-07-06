@@ -13,6 +13,17 @@
         android:layout_height="wrap_content"
         android:indeterminate="true" />
 
+    <TextView
+        android:id="@+id/no_stories_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_large"
+        android:gravity="center"
+        android:text="@string/no_story_error_text"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_medium"
+        android:visibility="gone" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_my_stories"
         android:layout_width="match_parent"
