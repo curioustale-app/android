@@ -53,7 +53,7 @@ public class StoriesFragment extends Fragment implements StoryAdapter.OnStoryIte
         });
     }
 
-    private void handleNoStories(){
+    private void handleNoStories() {
         binding.noStoriesText.setVisibility(View.VISIBLE);
     }
 
