@@ -19,4 +19,6 @@
     <string name="please_enter_answer_prompt">few words wont hurt</string>
     <string name="answer_submit_error">There ware error submitting your story</string>
     <string name="answer_submit_success">Thanks for submitting your story</string>
+    <string name="no_question_for_today_text">No Question for today!</string>
+    <string name="no_story_error_text">No stories yet. Start exploring your next awesome story!</string>
 </resources>

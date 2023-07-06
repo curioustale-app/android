@@ -3,10 +3,15 @@
     <style name="Theme.CuriousTale" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
     </style>
 
     <style name="Theme.CuriousTale.NoAppBar" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalBottomSheetDialog</item>
     </style>
 </resources>

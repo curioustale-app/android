@@ -22,12 +22,18 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         binding.cardQuestionOfDay.setOnClickListener(v -> navigateToQuestionPage());
+        binding.cardDayStreak.setOnClickListener(v -> navigateToMyStoriesPage());
         return binding.getRoot();
     }
 
     private void navigateToQuestionPage() {
         NavController controller = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
         controller.navigate(R.id.from_home_to_question);
+    }
+
+    private void navigateToMyStoriesPage() {
+        NavController controller = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
+        controller.navigate(R.id.from_home_to_my_stories);
     }
 
     @Override

@@ -12,9 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
-
 import app.curioustale.curioustale.R;
 import app.curioustale.curioustale.config.Constants;
 import app.curioustale.curioustale.config.PreferenceUtils;
@@ -67,6 +64,7 @@ public class QuestionFragment extends Fragment {
     }
 
     private void handleNoQuestionForDay() {
-        Snackbar.make(binding.getRoot(), "No Question for today!", BaseTransientBottomBar.LENGTH_SHORT).show();
+        binding.btnAnswer.setEnabled(false);
+        binding.tvQuestion.setText(R.string.no_question_for_today_text);
     }
 }

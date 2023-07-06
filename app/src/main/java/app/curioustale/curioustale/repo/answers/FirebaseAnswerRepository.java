@@ -22,4 +22,14 @@ public class FirebaseAnswerRepository implements AnswerRepository {
                 .addOnSuccessListener(unused -> listener.onAnswerSubmitResult())
                 .addOnFailureListener(listener::onAnswerSubmitError);
     }
+
+    @Override
+    public void myAnswers(String userId, MyAnswersResultListener listener) {
+        db.collection(FirebaseUtils.COLLECTION_USERS)
+                .document(userId)
+                .collection(FirebaseUtils.COLLECTION_ANSWERS)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> listener.onAnswerListResult(queryDocumentSnapshots.toObjects(Answer.class)))
+                .addOnFailureListener(listener::onAnswerListError);
+    }
 }

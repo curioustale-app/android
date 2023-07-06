@@ -13,13 +13,16 @@
         <action
             android:id="@+id/from_home_to_question"
             app:destination="@id/question_fragment" />
+        <action
+            android:id="@+id/from_home_to_my_stories"
+            app:destination="@id/navigation_my_stories" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_my_stories"
-        android:name="app.curioustale.curioustale.ui.dashboard.DashboardFragment"
+        android:name="app.curioustale.curioustale.ui.stories.StoriesFragment"
         android:label="@string/title_my_stories"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_stories" />
 
     <fragment
         android:id="@+id/navigation_notifications"
