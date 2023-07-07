@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -14,8 +15,6 @@ import app.curioustale.curioustale.config.PreferenceUtils;
 import app.curioustale.curioustale.databinding.ActivitySplashBinding;
 import app.curioustale.curioustale.repo.auth.AuthRepository;
 import app.curioustale.curioustale.repo.auth.FirebaseAuthRepository;
-import app.curioustale.curioustale.repo.config.ConfigRepository;
-import app.curioustale.curioustale.repo.config.FirebaseConfigRepository;
 import app.curioustale.curioustale.utils.FirebaseUtils;
 
 public class Splash extends AppCompatActivity implements AuthRepository.AnonymousSignInListener<FirebaseUser> {
@@ -24,14 +23,11 @@ public class Splash extends AppCompatActivity implements AuthRepository.Anonymou
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        ConfigRepository configRepository = new FirebaseConfigRepository();
+        MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         AuthRepository<FirebaseUser> authRepository = new FirebaseAuthRepository();
-
-        configRepository.setTimestamp(() -> configRepository.getServerConfig(serverConfig -> {
+        viewModel.getServerConfig().observe(this, serverConfig -> {
             String today = FirebaseUtils.firebaseTimestampToDayKey(serverConfig.getTimestamp());
             PreferenceUtils.saveToday(Splash.this, today);
             if (authRepository.isUserSignedIn()) {
@@ -39,11 +35,12 @@ public class Splash extends AppCompatActivity implements AuthRepository.Anonymou
             } else {
                 authRepository.signInAnonymously(this);
             }
-        }));
+        });
     }
 
     private void navigateToDashboard() {
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     @Override

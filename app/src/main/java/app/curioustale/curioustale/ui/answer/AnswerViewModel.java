@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel;
 import app.curioustale.curioustale.models.Answer;
 import app.curioustale.curioustale.repo.answers.AnswerRepository;
 import app.curioustale.curioustale.repo.answers.FirebaseAnswerRepository;
-import app.curioustale.curioustale.repo.auth.FirebaseAuthRepository;
 import app.curioustale.curioustale.utils.Either;
 
 public class AnswerViewModel extends ViewModel {
@@ -18,11 +17,8 @@ public class AnswerViewModel extends ViewModel {
     }
 
     public MutableLiveData<Either<Exception, Boolean>> submitAnswer(Answer answer) {
-        if (answerResult != null) return answerResult;
-
         answerResult = new MutableLiveData<>();
-        String userId = new FirebaseAuthRepository().getCurrentUser().getUid();
-        answerRepository.submitAnswer(userId, answer, new AnswerRepository.SubmitAnswerResultListener() {
+        answerRepository.submitAnswer(answer, new AnswerRepository.SubmitAnswerResultListener() {
             @Override
             public void onAnswerSubmitResult() {
                 answerResult.setValue(Either.right(true));

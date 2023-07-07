@@ -1,6 +1,7 @@
 package app.curioustale.curioustale.ui.question;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class QuestionFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentQuestionBinding.inflate(inflater, container, false);
         String today = PreferenceUtils.getToday(requireContext());
+        Log.d(Constants.DEBUG_TAG, "getting question for today: " + today);
         viewModel.getQuestionForTheDay(today).observe(getViewLifecycleOwner(), this::setQuestionForTheDay);
         binding.btnAnswer.setOnClickListener(v -> navigateToAnswerPage());
         return binding.getRoot();

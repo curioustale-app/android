@@ -8,11 +8,20 @@ import com.google.firebase.Timestamp;
 public class Answer {
     private String question;
     private String questionId;
+    private String userId;
     private String answer;
     private Timestamp timestamp;
 
     public Answer() {
         // Required for firebase
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getQuestion() {
@@ -51,6 +60,7 @@ public class Answer {
     @Override
     public String toString() {
         return "Answer{" +
+                ", userId='" + userId + '\'' +
                 "question='" + question + '\'' +
                 ", questionId='" + questionId + '\'' +
                 ", answer='" + answer + '\'' +

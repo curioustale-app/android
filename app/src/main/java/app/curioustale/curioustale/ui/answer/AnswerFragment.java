@@ -18,18 +18,26 @@ import app.curioustale.curioustale.R;
 import app.curioustale.curioustale.config.Constants;
 import app.curioustale.curioustale.databinding.FragmentAnswerBinding;
 import app.curioustale.curioustale.models.Answer;
+import app.curioustale.curioustale.repo.auth.FirebaseAuthRepository;
+import app.curioustale.curioustale.ui.MainViewModel;
+import app.curioustale.curioustale.utils.DayStreakUtils;
 import app.curioustale.curioustale.utils.Either;
 import app.curioustale.curioustale.utils.HashUtils;
 
 public class AnswerFragment extends Fragment {
-    private String questionTitle;
+
     private FragmentAnswerBinding binding;
     private AnswerViewModel viewModel;
+    private MainViewModel mainViewModel;
+
+    private String questionTitle;
+    private String currentUserId;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(AnswerViewModel.class);
+        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         if (getArguments() != null) {
             questionTitle = getArguments().getString(Constants.KEY_QUESTION_TITLE);
         }
@@ -41,6 +49,7 @@ public class AnswerFragment extends Fragment {
         binding = FragmentAnswerBinding.inflate(inflater, container, false);
         binding.tvQuestion.setText(questionTitle);
         binding.btnAnswer.setOnClickListener(v -> submitAnswer());
+        currentUserId = new FirebaseAuthRepository().getCurrentUser().getUid();
         return binding.getRoot();
     }
 
@@ -49,6 +58,7 @@ public class AnswerFragment extends Fragment {
         if (story == null) return;
 
         Answer answer = new Answer();
+        answer.setUserId(currentUserId);
         answer.setAnswer(story);
         answer.setQuestionId(HashUtils.md5(questionTitle));
         answer.setQuestion(questionTitle);
@@ -64,10 +74,17 @@ public class AnswerFragment extends Fragment {
         binding.progress.hide();
 
         if (either.isRight()) {
+            handleDayStreakUpdate();
             displayToast(getString(R.string.answer_submit_success));
         } else {
             displayToast(getString(R.string.answer_submit_error));
         }
+    }
+
+    private void handleDayStreakUpdate() {
+        mainViewModel.getServerConfig().observe(getViewLifecycleOwner(), serverConfig
+                -> mainViewModel.getCurrentUserDetails(currentUserId).observe(getViewLifecycleOwner(), user
+                -> mainViewModel.saveUserDetails(DayStreakUtils.updateStreak(user, serverConfig.getTimestamp()))));
     }
 
     private void displayToast(String message) {
