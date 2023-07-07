@@ -1,39 +1,91 @@
 package app.curioustale.curioustale.ui;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import app.curioustale.curioustale.config.Constants;
 import app.curioustale.curioustale.models.Question;
+import app.curioustale.curioustale.models.ServerConfig;
+import app.curioustale.curioustale.models.User;
+import app.curioustale.curioustale.repo.config.ConfigRepository;
+import app.curioustale.curioustale.repo.config.FirebaseConfigRepository;
 import app.curioustale.curioustale.repo.questions.FirebaseQuestionRepository;
 import app.curioustale.curioustale.repo.questions.QuestionRepository;
+import app.curioustale.curioustale.repo.users.FirebaseUserRepository;
+import app.curioustale.curioustale.repo.users.UserRepository;
 
 public class MainViewModel extends ViewModel {
     private final QuestionRepository questionRepository;
+    private final UserRepository userRepository;
+    private final ConfigRepository configRepository;
+
     private MutableLiveData<Question> question;
+    private MutableLiveData<User> user;
+    private MutableLiveData<ServerConfig> config;
 
     public MainViewModel() {
         questionRepository = new FirebaseQuestionRepository();
+        userRepository = new FirebaseUserRepository();
+        configRepository = new FirebaseConfigRepository();
     }
 
     public MutableLiveData<Question> getQuestionForTheDay(String today) {
         if (question != null) return question;
-        Log.d(Constants.DEBUG_TAG, "getting the question for the day");
 
         question = new MutableLiveData<>();
         questionRepository.getQuestionForTheDay(today, new QuestionRepository.QuestionForTheDayResultListener() {
             @Override
             public void onQuestionResult(Question q) {
-                question.setValue(q);
+                question.postValue(q);
             }
 
             @Override
             public void onQuestionError(Exception e) {
-                question.setValue(null);
+                question.postValue(null);
             }
         });
         return question;
+    }
+
+    public MutableLiveData<User> getCurrentUserDetails(String userId) {
+        if (user != null) return user;
+
+        user = new MutableLiveData<>();
+        userRepository.getUser(userId, new UserRepository.GetUserResultListener() {
+            @Override
+            public void onUserResult(User u) {
+                user.postValue(u);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                user.postValue(new User(userId));
+            }
+        });
+        return user;
+    }
+
+    public void saveUserDetails(User u) {
+        if (user == null) user = new MutableLiveData<>();
+        userRepository.saveUser(u, new UserRepository.SaveUserResultListener() {
+            @Override
+            public void onUserSaved() {
+                user.postValue(u);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                user.postValue(null);
+            }
+        });
+    }
+
+    public MutableLiveData<ServerConfig> getServerConfig() {
+        if (config != null) return config;
+
+        config = new MutableLiveData<>();
+        configRepository.setTimestamp(() ->
+                configRepository.getServerConfig(serverConfig ->
+                        config.postValue(serverConfig)));
+        return config;
     }
 }

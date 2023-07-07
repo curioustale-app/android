@@ -14,9 +14,10 @@ public class FirebaseQuestionRepository implements QuestionRepository {
 
     @Override
     public void getQuestionForTheDay(String today, QuestionForTheDayResultListener listener) {
-        db.collection(FirebaseUtils.COLLECTION_QUESTIONS).document(today).get().addOnSuccessListener(documentSnapshot -> {
-            Question question = documentSnapshot.toObject(Question.class);
-            listener.onQuestionResult(question);
-        }).addOnFailureListener(listener::onQuestionError);
+        db.collection(FirebaseUtils.COLLECTION_QUESTIONS)
+                .document(today)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> listener.onQuestionResult(documentSnapshot.toObject(Question.class)))
+                .addOnFailureListener(listener::onQuestionError);
     }
 }

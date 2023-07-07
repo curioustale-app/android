@@ -37,6 +37,7 @@
                 style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
                 android:hint="@string/start_typing_hint"
                 app:boxCornerRadiusBottomEnd="@dimen/radius"
                 app:boxCornerRadiusBottomStart="@dimen/radius"

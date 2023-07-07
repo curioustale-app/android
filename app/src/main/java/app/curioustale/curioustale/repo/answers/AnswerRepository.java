@@ -5,7 +5,7 @@ import java.util.List;
 import app.curioustale.curioustale.models.Answer;
 
 public interface AnswerRepository {
-    void submitAnswer(String userId, Answer answer, SubmitAnswerResultListener listener);
+    void submitAnswer(Answer answer, SubmitAnswerResultListener listener);
 
     void myAnswers(String userId, MyAnswersResultListener listener);
 

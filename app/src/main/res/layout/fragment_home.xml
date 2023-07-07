@@ -13,6 +13,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_day_streak"
             style="@style/Widget.Material3.CardView.Outlined"

@@ -9,6 +9,7 @@ import java.util.Locale;
 public class FirebaseUtils {
     public static final String COLLECTION_QUESTIONS = "questions";
     public static final String COLLECTION_ANSWERS = "answers";
+    public static final String COLLECTION_USERS_ANSWERS = "users-answers";
     public static final String COLLECTION_USERS = "users";
     public static final String COLLECTION_CONFIGS = "configs";
     public static final String COLLECTION_CONFIGS_SERVER = "server";
