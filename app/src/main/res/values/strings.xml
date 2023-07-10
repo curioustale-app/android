@@ -2,7 +2,6 @@
     <string name="app_name">Curious Tale</string>
     <string name="title_home">Home</string>
     <string name="title_my_stories">My Stories</string>
-    <string name="title_notifications">Notifications</string>
     <string name="anon_acc_create_error">Failed to connect to the servers</string>
     <string name="see_my_stories_btn">see my stories</string>
     <string name="submit_story_btn">submit story</string>
@@ -22,4 +21,14 @@
     <string name="no_question_for_today_text">No Question for today!</string>
     <string name="no_story_error_text">No stories yet. Start exploring your next awesome story!</string>
     <string name="answered_btn_text">answered</string>
+    <string name="title_settings">Settings</string>
+    <string name="socials_pref_category">socials</string>
+    <string name="general_pref_category">general</string>
+    <string name="join_discord_text">Join the discord community</string>
+    <string name="follow_twitter_text">Follow us on twitter</string>
+    <string name="suggest_text">Suggest a feature or new questions</string>
+    <string name="submit_suggestion_btn">submit suggestion</string>
+    <string name="empty_suggestion_error">some words would be helpful</string>
+    <string name="suggestion_submit_error">Failed to submit your suggestion</string>
+    <string name="suggestion_success">thanks for the suggestion</string>
 </resources>

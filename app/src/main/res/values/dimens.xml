@@ -9,5 +9,4 @@
     <item name="text_large" type="dimen">24sp</item>
     <item name="text_medium" type="dimen">18sp</item>
     <item name="text_small" type="dimen">15sp</item>
-    <item name="text_extra_small" type="dimen">12sp</item>
 </resources>

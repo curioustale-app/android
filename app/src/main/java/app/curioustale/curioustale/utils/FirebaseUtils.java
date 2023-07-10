@@ -13,6 +13,7 @@ public class FirebaseUtils {
     public static final String COLLECTION_USERS = "users";
     public static final String COLLECTION_CONFIGS = "configs";
     public static final String COLLECTION_CONFIGS_SERVER = "server";
+    public static final String COLLECTION_SUGGESTIONS = "suggestions";
 
     private FirebaseUtils() {
         throw new IllegalStateException("Utility class");
