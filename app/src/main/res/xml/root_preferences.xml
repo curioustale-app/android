@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/general_pref_category">
+
+        <Preference
+            app:key="suggestion"
+            app:title="@string/suggest_text" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/socials_pref_category">
+
+        <Preference
+            app:key="twitter"
+            app:title="@string/follow_twitter_text" />
+
+        <Preference
+            app:key="discord"
+            app:title="@string/join_discord_text" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
