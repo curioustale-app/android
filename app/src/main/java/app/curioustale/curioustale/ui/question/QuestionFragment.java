@@ -19,16 +19,19 @@ import app.curioustale.curioustale.config.PreferenceUtils;
 import app.curioustale.curioustale.databinding.FragmentQuestionBinding;
 import app.curioustale.curioustale.models.Question;
 import app.curioustale.curioustale.ui.MainViewModel;
+import app.curioustale.curioustale.utils.HashUtils;
 
 public class QuestionFragment extends Fragment {
     private FragmentQuestionBinding binding;
-    private MainViewModel viewModel;
+    private MainViewModel mainViewModel;
+    private QuestionViewModel viewModel;
     private Question question;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+        viewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
     }
 
     @Override
@@ -37,7 +40,7 @@ public class QuestionFragment extends Fragment {
         binding = FragmentQuestionBinding.inflate(inflater, container, false);
         String today = PreferenceUtils.getToday(requireContext());
         Log.d(Constants.DEBUG_TAG, "getting question for today: " + today);
-        viewModel.getQuestionForTheDay(today).observe(getViewLifecycleOwner(), this::setQuestionForTheDay);
+        mainViewModel.getQuestionForTheDay(today).observe(getViewLifecycleOwner(), this::setQuestionForTheDay);
         binding.btnAnswer.setOnClickListener(v -> navigateToAnswerPage());
         return binding.getRoot();
     }
@@ -63,6 +66,21 @@ public class QuestionFragment extends Fragment {
             return;
         }
         binding.tvQuestion.setText(question.getTitle());
+        checkIfQuestionIsAnswered(question);
+    }
+
+    private void checkIfQuestionIsAnswered(Question question) {
+        String questionId = HashUtils.md5(question.getTitle());
+        viewModel.getAnswerForQuestion(questionId).observe(getViewLifecycleOwner(), answer -> {
+            if (answer.isRight() && answer.getRight().isPresent()) {
+                handleQuestionAlreadyAnswered();
+            }
+        });
+    }
+
+    private void handleQuestionAlreadyAnswered() {
+        binding.btnAnswer.setEnabled(false);
+        binding.btnAnswer.setText(R.string.answered_btn_text);
     }
 
     private void handleNoQuestionForDay() {

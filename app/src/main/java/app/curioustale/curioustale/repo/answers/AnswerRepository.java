@@ -9,6 +9,8 @@ public interface AnswerRepository {
 
     void myAnswers(String userId, MyAnswersResultListener listener);
 
+    void getAnswer(String userId, String questionId, GetAnswerResultListener listener);
+
     interface SubmitAnswerResultListener {
         void onAnswerSubmitResult();
 
@@ -19,5 +21,11 @@ public interface AnswerRepository {
         void onAnswerListResult(List<Answer> answers);
 
         void onAnswerListError(Exception e);
+    }
+
+    interface GetAnswerResultListener {
+        void onAnswerResult(Answer answer);
+
+        void onAnswerError(Exception e);
     }
 }

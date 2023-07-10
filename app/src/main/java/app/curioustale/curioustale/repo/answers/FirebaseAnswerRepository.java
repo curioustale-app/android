@@ -34,4 +34,22 @@ public class FirebaseAnswerRepository implements AnswerRepository {
                 .addOnSuccessListener(queryDocumentSnapshots -> listener.onAnswerListResult(queryDocumentSnapshots.toObjects(Answer.class)))
                 .addOnFailureListener(listener::onAnswerListError);
     }
+
+    @Override
+    public void getAnswer(String userId, String questionId, GetAnswerResultListener listener) {
+        db.collection(FirebaseUtils.COLLECTION_USERS_ANSWERS)
+                .document(userId)
+                .collection(FirebaseUtils.COLLECTION_ANSWERS)
+                .document(questionId)
+                .get()
+                .addOnSuccessListener(snapshot -> {
+                    Answer answer = snapshot.toObject(Answer.class);
+                    if (answer == null) {
+                        listener.onAnswerError(new Exception(""));
+                    } else {
+                        listener.onAnswerResult(answer);
+                    }
+                })
+                .addOnFailureListener(listener::onAnswerError);
+    }
 }
