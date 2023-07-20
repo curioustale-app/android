@@ -4,10 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import app.curioustale.curioustale.models.Question;
-import app.curioustale.curioustale.models.ServerConfig;
 import app.curioustale.curioustale.models.User;
-import app.curioustale.curioustale.repo.config.ConfigRepository;
-import app.curioustale.curioustale.repo.config.FirebaseConfigRepository;
 import app.curioustale.curioustale.repo.questions.FirebaseQuestionRepository;
 import app.curioustale.curioustale.repo.questions.QuestionRepository;
 import app.curioustale.curioustale.repo.users.FirebaseUserRepository;
@@ -16,16 +13,13 @@ import app.curioustale.curioustale.repo.users.UserRepository;
 public class MainViewModel extends ViewModel {
     private final QuestionRepository questionRepository;
     private final UserRepository userRepository;
-    private final ConfigRepository configRepository;
 
     private MutableLiveData<Question> question;
     private MutableLiveData<User> user;
-    private MutableLiveData<ServerConfig> config;
 
     public MainViewModel() {
         questionRepository = new FirebaseQuestionRepository();
         userRepository = new FirebaseUserRepository();
-        configRepository = new FirebaseConfigRepository();
     }
 
     public MutableLiveData<Question> getQuestionForTheDay(String today) {
@@ -77,15 +71,5 @@ public class MainViewModel extends ViewModel {
                 user.postValue(null);
             }
         });
-    }
-
-    public MutableLiveData<ServerConfig> getServerConfig() {
-        if (config != null) return config;
-
-        config = new MutableLiveData<>();
-        configRepository.setTimestamp(() ->
-                configRepository.getServerConfig(serverConfig ->
-                        config.postValue(serverConfig)));
-        return config;
     }
 }

@@ -15,10 +15,10 @@ import androidx.navigation.Navigation;
 
 import app.curioustale.curioustale.R;
 import app.curioustale.curioustale.config.Constants;
-import app.curioustale.curioustale.config.PreferenceUtils;
 import app.curioustale.curioustale.databinding.FragmentQuestionBinding;
 import app.curioustale.curioustale.models.Question;
 import app.curioustale.curioustale.ui.MainViewModel;
+import app.curioustale.curioustale.utils.FirebaseUtils;
 import app.curioustale.curioustale.utils.HashUtils;
 
 public class QuestionFragment extends Fragment {
@@ -38,7 +38,7 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentQuestionBinding.inflate(inflater, container, false);
-        String today = PreferenceUtils.getToday(requireContext());
+        String today = FirebaseUtils.getToday();
         Log.d(Constants.DEBUG_TAG, "getting question for today: " + today);
         mainViewModel.getQuestionForTheDay(today).observe(getViewLifecycleOwner(), this::setQuestionForTheDay);
         binding.btnAnswer.setOnClickListener(v -> navigateToAnswerPage());

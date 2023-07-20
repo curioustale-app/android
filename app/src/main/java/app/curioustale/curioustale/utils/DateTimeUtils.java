@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 public class DateTimeUtils {
@@ -14,13 +13,9 @@ public class DateTimeUtils {
         throw new IllegalStateException("Utility class");
     }
 
-    public static String getCurrentUTCTime() {
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1; // Month is zero-based, so adding 1
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        return String.format(Locale.getDefault(), "%04d-%02d-%02d", year, month, day);
+    public static String getHumanReadableDate(Date timestamp) {
+        SimpleDateFormat customFormat = new SimpleDateFormat("d MMM", Locale.getDefault());
+        return customFormat.format(timestamp);
     }
 
     public static String getDayFromTimestamp(Timestamp timestamp) {
