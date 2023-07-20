@@ -27,10 +27,13 @@
     <string name="general_pref_category">general</string>
     <string name="join_discord_text">Join the discord community</string>
     <string name="follow_twitter_text">Follow us on twitter</string>
-    <string name="suggest_text">Suggest a feature or new questions</string>
+    <string name="suggest_text">Submit a suggestion</string>
     <string name="submit_suggestion_btn">submit suggestion</string>
     <string name="empty_suggestion_error">some words would be helpful</string>
     <string name="suggestion_submit_error">Failed to submit your suggestion</string>
     <string name="suggestion_success">thanks for the suggestion</string>
     <string name="title_insights">Insights</string>
+    <string name="discord_summary">the community needs you</string>
+    <string name="twitter_summary">we tweet app updates and insights</string>
+    <string name="suggestion_summary">suggest new features and questions you would like to see in the future</string>
 </resources>
