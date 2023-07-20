@@ -2,7 +2,6 @@
     <!-- Base application theme. -->
     <style name="Theme.CuriousTale" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="fontFamily">@font/poppins_medium</item>
-        <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
     </style>
 

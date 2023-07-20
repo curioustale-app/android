@@ -9,6 +9,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.elevation.SurfaceColors;
+
 import app.curioustale.curioustale.R;
 import app.curioustale.curioustale.config.Constants;
 import app.curioustale.curioustale.databinding.ActivityMainBinding;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getWindow().setStatusBarColor(SurfaceColors.SURFACE_2.getColor(this));
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
