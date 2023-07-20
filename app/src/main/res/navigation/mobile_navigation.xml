@@ -25,6 +25,12 @@
         tools:layout="@layout/fragment_stories" />
 
     <fragment
+        android:id="@+id/navigation_insights"
+        android:name="app.curioustale.curioustale.ui.insights.InsightsFragment"
+        android:label="@string/title_insights"
+        tools:layout="@layout/fragment_insights" />
+
+    <fragment
         android:id="@+id/navigation_settings"
         android:name="app.curioustale.curioustale.ui.settings.SettingsFragment"
         android:label="@string/title_settings" />
