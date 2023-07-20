@@ -1,6 +1,6 @@
 package app.curioustale.curioustale.utils;
 
-import com.google.firebase.Timestamp;
+import java.util.Date;
 
 import app.curioustale.curioustale.models.User;
 
@@ -16,16 +16,16 @@ public class DayStreakUtils {
      * Case 3: When the user is answering on new day
      * Case 4: When the user is answering after X days from previous session
      */
-    public static User updateStreak(User user, Timestamp today) {
+    public static User updateStreak(User user, Date today) {
         // case 1
         if (user.getLastSubmissionDate() == null) {
             user.setStreak(1);
-            user.setLastSubmissionDate(today.toDate());
+            user.setLastSubmissionDate(today);
             return user;
         }
 
-        long difference = DateTimeUtils.getDifferenceBetweenDates(user.getLastSubmissionDate(), today.toDate());
-        user.setLastSubmissionDate(today.toDate());
+        long difference = DateTimeUtils.getDifferenceBetweenDates(user.getLastSubmissionDate(), today);
+        user.setLastSubmissionDate(today);
 
         // case 2
         if (difference == 0) return user;

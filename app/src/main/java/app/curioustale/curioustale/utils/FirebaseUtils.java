@@ -11,8 +11,7 @@ public class FirebaseUtils {
     public static final String COLLECTION_ANSWERS = "answers";
     public static final String COLLECTION_USERS_ANSWERS = "users-answers";
     public static final String COLLECTION_USERS = "users";
-    public static final String COLLECTION_CONFIGS = "configs";
-    public static final String COLLECTION_CONFIGS_SERVER = "server";
+    public static final String COLLECTION_INSIGHTS = "insights";
     public static final String COLLECTION_SUGGESTIONS = "suggestions";
 
     private FirebaseUtils() {
@@ -23,5 +22,13 @@ public class FirebaseUtils {
         Date parsed = timestamp.toDate();
         SimpleDateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         return customFormat.format(parsed);
+    }
+
+    public static String getToday() {
+        return firebaseTimestampToDayKey(Timestamp.now());
+    }
+
+    public static Date getTodayAsDate() {
+        return Timestamp.now().toDate();
     }
 }

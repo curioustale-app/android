@@ -22,6 +22,7 @@ import app.curioustale.curioustale.repo.auth.FirebaseAuthRepository;
 import app.curioustale.curioustale.ui.MainViewModel;
 import app.curioustale.curioustale.utils.DayStreakUtils;
 import app.curioustale.curioustale.utils.Either;
+import app.curioustale.curioustale.utils.FirebaseUtils;
 import app.curioustale.curioustale.utils.HashUtils;
 
 public class AnswerFragment extends Fragment {
@@ -82,9 +83,8 @@ public class AnswerFragment extends Fragment {
     }
 
     private void handleDayStreakUpdate() {
-        mainViewModel.getServerConfig().observe(getViewLifecycleOwner(), serverConfig
-                -> mainViewModel.getCurrentUserDetails(currentUserId).observe(getViewLifecycleOwner(), user
-                -> mainViewModel.saveUserDetails(DayStreakUtils.updateStreak(user, serverConfig.getTimestamp()))));
+        mainViewModel.getCurrentUserDetails(currentUserId).observe(getViewLifecycleOwner(), user
+                -> mainViewModel.saveUserDetails(DayStreakUtils.updateStreak(user, FirebaseUtils.getTodayAsDate())));
     }
 
     private void displayToast(String message) {
