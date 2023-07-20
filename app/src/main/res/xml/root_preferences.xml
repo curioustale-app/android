@@ -5,8 +5,8 @@
         app:title="@string/general_pref_category">
 
         <Preference
-            app:key="suggestion"
             app:iconSpaceReserved="false"
+            app:key="suggestion"
             app:summary="@string/suggestion_summary"
             app:title="@string/suggest_text" />
 
@@ -17,14 +17,14 @@
         app:title="@string/socials_pref_category">
 
         <Preference
-            app:key="twitter"
             app:iconSpaceReserved="false"
+            app:key="twitter"
             app:summary="@string/twitter_summary"
             app:title="@string/follow_twitter_text" />
 
         <Preference
-            app:key="discord"
             app:iconSpaceReserved="false"
+            app:key="discord"
             app:summary="@string/discord_summary"
             app:title="@string/join_discord_text" />
 

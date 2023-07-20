@@ -46,6 +46,7 @@ public class InsightsAdapter extends RecyclerView.Adapter<InsightsAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private final ItemInsightBinding binding;
+
         public MyViewHolder(@NonNull ItemInsightBinding binding) {
             super(binding.getRoot());
             this.binding = binding;

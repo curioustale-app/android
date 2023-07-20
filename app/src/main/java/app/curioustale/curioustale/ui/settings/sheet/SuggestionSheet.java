@@ -32,11 +32,11 @@ public class SuggestionSheet extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = SheetSuggestionBinding.inflate(inflater, container, false);
-        binding.btnSubmit.setOnClickListener(this::handleSubmit);
+        binding.btnSubmit.setOnClickListener(v -> this.handleSubmit());
         return binding.getRoot();
     }
 
-    private void handleSubmit(View _view) {
+    private void handleSubmit() {
         if (binding.etSuggestion.getText() == null) {
             binding.etlSuggestion.setError(getString(R.string.empty_suggestion_error));
             return;
@@ -53,7 +53,7 @@ public class SuggestionSheet extends BottomSheetDialogFragment {
 
     private void handleSubmissionResult(Boolean isSuccess) {
         binding.btnSubmit.setEnabled(true);
-        if (!isSuccess) {
+        if (Boolean.FALSE.equals(isSuccess)) {
             Toast.makeText(requireContext(), R.string.suggestion_submit_error, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(requireContext(), R.string.suggestion_success, Toast.LENGTH_SHORT).show();

@@ -9,6 +9,7 @@ public interface InsightRepository {
 
     interface InsightListListener {
         void onInsightsListResult(List<Insight> insights);
+
         void onInsightsListError(Exception e);
     }
 }

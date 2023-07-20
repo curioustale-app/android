@@ -10,7 +10,7 @@ import app.curioustale.curioustale.utils.FirebaseUtils;
 public class FirebaseSuggestionRepository implements SuggestionRepository {
     private final FirebaseFirestore db;
 
-    public FirebaseSuggestionRepository () {
+    public FirebaseSuggestionRepository() {
         this.db = FirebaseFirestore.getInstance();
     }
 

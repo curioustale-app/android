@@ -5,6 +5,7 @@ public interface SuggestionRepository {
 
     interface SuggestionResultListener {
         void onSubmissionSuccess();
+
         void onSubmissionError(Exception e);
     }
 }
