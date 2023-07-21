@@ -55,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
+                android:textColor="?colorOnSurface"
                 android:textSize="@dimen/text_medium" />
 
             <TextView
