@@ -6,6 +6,7 @@ public class Constants {
     public static final String KEY_ANSWER = "curious-tale-answer";
 
     public static final int PERMISSION_NOTIFICATION = 101010;
+    public static final int REMINDER_NOTIFICATION_ID = 1001;
 
     public static final String TWITTER_LINK = "https://twitter.com/curioustale_app";
     public static final String DISCORD_LINK = "https://discord.gg/xb5ecHMDkN";

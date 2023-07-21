@@ -32,11 +32,19 @@ public class DateTimeUtils {
     }
 
     public static long getDifferenceBetweenDates(Date start, Date end) {
-        Calendar startCal = Calendar.getInstance();
-        startCal.setTime(start);
-        Calendar endCal = Calendar.getInstance();
-        endCal.setTime(end);
+        Calendar startCal = getOnlyDateInstance(start);
+        Calendar endCal = getOnlyDateInstance(end);
         long msDiff = endCal.getTimeInMillis() - startCal.getTimeInMillis();
         return TimeUnit.MILLISECONDS.toDays(msDiff);
+    }
+
+    private static Calendar getOnlyDateInstance(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal;
     }
 }

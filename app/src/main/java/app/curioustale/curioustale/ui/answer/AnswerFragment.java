@@ -4,14 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.Timestamp;
 
 import app.curioustale.curioustale.R;
@@ -77,6 +78,7 @@ public class AnswerFragment extends Fragment {
         if (either.isRight()) {
             handleDayStreakUpdate();
             displayToast(getString(R.string.answer_submit_success));
+            navigateBackToQuestion();
         } else {
             displayToast(getString(R.string.answer_submit_error));
         }
@@ -88,7 +90,12 @@ public class AnswerFragment extends Fragment {
     }
 
     private void displayToast(String message) {
-        Snackbar.make(binding.getRoot(), message, BaseTransientBottomBar.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void navigateBackToQuestion() {
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
+        navController.popBackStack();
     }
 
     private String checkInputField() {
