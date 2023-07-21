@@ -7,6 +7,7 @@ import android.content.Intent;
 
 import java.util.Calendar;
 
+import app.curioustale.curioustale.config.Constants;
 import app.curioustale.curioustale.receiver.AlarmReceiver;
 
 public class AlarmUtils {
@@ -16,7 +17,7 @@ public class AlarmUtils {
     public AlarmUtils(Context context) {
         Intent intent = new Intent(context, AlarmReceiver.class);
         this.alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        this.alarmIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        this.alarmIntent = PendingIntent.getBroadcast(context, Constants.REMINDER_NOTIFICATION_ID, intent, PendingIntent.FLAG_IMMUTABLE);
     }
 
     public void setRepeatingAlarm() {
@@ -25,6 +26,11 @@ public class AlarmUtils {
         calendar.set(Calendar.HOUR_OF_DAY, 8);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
+
+        Calendar now = Calendar.getInstance();
+        if (now.after(calendar)) {
+            calendar.add(Calendar.DATE, 1);
+        }
 
         alarmManager.setInexactRepeating(
                 AlarmManager.RTC_WAKEUP,

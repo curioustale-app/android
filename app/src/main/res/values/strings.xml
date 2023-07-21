@@ -36,4 +36,8 @@
     <string name="discord_summary">the community needs you</string>
     <string name="twitter_summary">we tweet app updates and insights</string>
     <string name="suggestion_summary">suggest new features and questions you would like to see in the future</string>
+    <string name="notification_title">New question for you!</string>
+    <string name="notification_subtitle">start your awesome story now</string>
+    <string name="notification_category_desc">daily notifications</string>
+    <string name="notification_channel">Daily Notifications</string>
 </resources>
