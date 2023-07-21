@@ -36,7 +36,7 @@ public class NotificationUtils {
     private void createNotificationChannel() {
         if (notificationManager.getNotificationChannel(CHANNEL_ID) == null) {
             final NotificationChannel notificationChannel =
-                    new NotificationChannel(CHANNEL_ID, CHANNEL_ID, NotificationManager.IMPORTANCE_LOW);
+                    new NotificationChannel(CHANNEL_ID, CHANNEL_ID, NotificationManager.IMPORTANCE_HIGH);
 
             notificationChannel.setDescription("daily notifications");
             notificationChannel.enableLights(true);
@@ -53,9 +53,11 @@ public class NotificationUtils {
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, homeIntent, PendingIntent.FLAG_IMMUTABLE);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context, CHANNEL_ID);
         return notificationBuilder
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setSmallIcon(R.mipmap.ic_launcher_foreground)
                 .setContentIntent(contentIntent)
                 .setAutoCancel(true)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .setOnlyAlertOnce(true)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setContentTitle("New question for you!")
