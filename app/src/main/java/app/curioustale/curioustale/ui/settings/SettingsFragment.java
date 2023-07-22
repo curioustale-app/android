@@ -20,6 +20,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         Preference twitterPreference = findPreference("twitter");
         Preference discordPreference = findPreference("discord");
         Preference suggestionPreference = findPreference("suggestion");
+        Preference sharePreference = findPreference("share");
+        Preference ratePreference = findPreference("rate");
 
         if (twitterPreference != null) {
             twitterPreference.setIntent(getIntentForUrl(Constants.TWITTER_LINK));
@@ -30,6 +32,21 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         if (suggestionPreference != null) {
             suggestionPreference.setOnPreferenceClickListener(this::handleOnSuggestionClicked);
         }
+        if (ratePreference != null) {
+            ratePreference.setIntent(getIntentForUrl(Constants.APP_PLAYER_STORE_LINK));
+        }
+        if (sharePreference != null) {
+            sharePreference.setOnPreferenceClickListener(this::handleOnShareClicked);
+        }
+    }
+
+    private boolean handleOnShareClicked(Preference preference) {
+        String invitationMessage = getString(R.string.invitation_message);
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, invitationMessage.concat(Constants.APP_PLAYER_STORE_LINK));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.invite_friends_text)));
+        return true;
     }
 
     private boolean handleOnSuggestionClicked(Preference preference) {

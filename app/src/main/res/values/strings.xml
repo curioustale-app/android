@@ -40,4 +40,10 @@
     <string name="notification_subtitle">start your awesome story now</string>
     <string name="notification_category_desc">daily notifications</string>
     <string name="notification_channel">Daily Notifications</string>
+    <string name="share_pref_summary">let your friends know, hop on the journey of self-discovery</string>
+    <string name="share_pref_title">Share with friends</string>
+    <string name="rate_pref_summary">reviews help other people wanting to try our app</string>
+    <string name="rate_pref_title">Rate us</string>
+    <string name="invitation_message">Hi! Check out this fun app! \n</string>
+    <string name="invite_friends_text">Invite Friends</string>
 </resources>

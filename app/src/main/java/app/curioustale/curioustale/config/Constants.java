@@ -10,6 +10,7 @@ public class Constants {
 
     public static final String TWITTER_LINK = "https://twitter.com/curioustale_app";
     public static final String DISCORD_LINK = "https://discord.gg/xb5ecHMDkN";
+    public static final String APP_PLAYER_STORE_LINK = "https://play.google.com/store/apps/details?id=app.curioustale.curioustale";
 
     private Constants() {
         throw new IllegalStateException("Utility class");
