@@ -10,6 +10,18 @@
             app:summary="@string/suggestion_summary"
             app:title="@string/suggest_text" />
 
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="share"
+            app:summary="@string/share_pref_summary"
+            app:title="@string/share_pref_title" />
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="rate"
+            app:summary="@string/rate_pref_summary"
+            app:title="@string/rate_pref_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
