@@ -46,4 +46,9 @@
     <string name="rate_pref_title">Rate us</string>
     <string name="invitation_message">Hi! Check out this fun app! \n</string>
     <string name="invite_friends_text">Invite Friends</string>
+    <string name="home_app_name">Curious\nTale</string>
+    <string name="home_tagline">Your Daily Journey of Self-Discovery</string>
+    <string name="home_slogan">making a change with a question per day</string>
+    <string name="get_started_btn_text">Get Started</string>
+    <string name="starting_now_text">Starting now…</string>
 </resources>

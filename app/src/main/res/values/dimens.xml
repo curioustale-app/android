@@ -6,7 +6,7 @@
     <item name="margin_large" type="dimen">20dp</item>
     <item name="gap" type="dimen">5dp</item>
 
-
+    <item name="text_head" type="dimen">58sp</item>
     <item name="text_extra_large" type="dimen">40sp</item>
     <item name="text_large" type="dimen">24sp</item>
     <item name="text_medium" type="dimen">18sp</item>
