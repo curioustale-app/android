@@ -3,7 +3,6 @@ package app.curioustale.curioustale.ui;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,9 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.elevation.SurfaceColors;
 
 import app.curioustale.curioustale.R;
-import app.curioustale.curioustale.config.Constants;
 import app.curioustale.curioustale.databinding.ActivityMainBinding;
-import app.curioustale.curioustale.repo.auth.FirebaseAuthRepository;
 import app.curioustale.curioustale.utils.AlarmUtils;
 import app.curioustale.curioustale.utils.PermissionUtils;
 
@@ -33,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String userId = new FirebaseAuthRepository().getCurrentUser().getUid();
-        Log.d(Constants.DEBUG_TAG, "User id: " + userId);
         if (!PermissionUtils.hasNotificationPermission(MainActivity.this)) {
             manageNotificationPermission(MainActivity.this);
         } else {
