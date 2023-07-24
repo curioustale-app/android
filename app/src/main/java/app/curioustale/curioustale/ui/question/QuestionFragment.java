@@ -55,7 +55,7 @@ public class QuestionFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString(Constants.KEY_QUESTION_TITLE, question.getTitle());
         NavController controller = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
-        controller.navigate(R.id.from_question_to_answer, bundle);
+        controller.navigate(R.id.answer_fragment, bundle);
     }
 
     private void setQuestionForTheDay(Question question) {

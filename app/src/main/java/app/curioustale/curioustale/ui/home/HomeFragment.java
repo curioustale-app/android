@@ -51,12 +51,12 @@ public class HomeFragment extends Fragment {
 
     private void navigateToQuestionPage() {
         NavController controller = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
-        controller.navigate(R.id.from_home_to_question);
+        controller.navigate(R.id.question_fragment);
     }
 
     private void navigateToMyStoriesPage() {
         NavController controller = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
-        controller.navigate(R.id.from_home_to_my_stories);
+        controller.navigate(R.id.navigation_my_stories);
     }
 
     @Override

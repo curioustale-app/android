@@ -25,12 +25,14 @@ import app.curioustale.curioustale.utils.DayStreakUtils;
 import app.curioustale.curioustale.utils.Either;
 import app.curioustale.curioustale.utils.FirebaseUtils;
 import app.curioustale.curioustale.utils.HashUtils;
+import app.curioustale.curioustale.utils.PreferenceUtils;
 
 public class AnswerFragment extends Fragment {
 
     private FragmentAnswerBinding binding;
     private AnswerViewModel viewModel;
     private MainViewModel mainViewModel;
+    private PreferenceUtils preferenceUtils;
 
     private String questionTitle;
     private String currentUserId;
@@ -40,6 +42,7 @@ public class AnswerFragment extends Fragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(AnswerViewModel.class);
         mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+        preferenceUtils = new PreferenceUtils(requireContext());
         if (getArguments() != null) {
             questionTitle = getArguments().getString(Constants.KEY_QUESTION_TITLE);
         }
@@ -79,6 +82,7 @@ public class AnswerFragment extends Fragment {
             handleDayStreakUpdate();
             displayToast(getString(R.string.answer_submit_success));
             navigateBackToQuestion();
+            preferenceUtils.storeRefreshStateOfStories(true);
         } else {
             displayToast(getString(R.string.answer_submit_error));
         }

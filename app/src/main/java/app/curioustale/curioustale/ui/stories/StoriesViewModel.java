@@ -19,8 +19,8 @@ public class StoriesViewModel extends ViewModel {
         repository = new FirebaseAnswerRepository();
     }
 
-    public MutableLiveData<Either<Exception, List<Answer>>> myStories() {
-        if (stories != null) return stories;
+    public MutableLiveData<Either<Exception, List<Answer>>> myStories(boolean refresh) {
+        if (!refresh && stories != null) return stories;
 
         stories = new MutableLiveData<>();
         String userId = new FirebaseAuthRepository().getCurrentUser().getUid();
