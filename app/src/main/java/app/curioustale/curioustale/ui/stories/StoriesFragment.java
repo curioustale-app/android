@@ -18,27 +18,31 @@ import app.curioustale.curioustale.models.Answer;
 import app.curioustale.curioustale.ui.stories.adapter.StoryAdapter;
 import app.curioustale.curioustale.ui.stories.sheet.StoryDetailSheet;
 import app.curioustale.curioustale.utils.Either;
+import app.curioustale.curioustale.utils.PreferenceUtils;
 
 public class StoriesFragment extends Fragment implements StoryAdapter.OnStoryItemClickListener {
 
     private FragmentStoriesBinding binding;
     private StoriesViewModel viewModel;
+    private PreferenceUtils preferenceUtils;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(StoriesViewModel.class);
+        preferenceUtils = new PreferenceUtils(requireContext());
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentStoriesBinding.inflate(inflater, container, false);
-        viewModel.myStories().observe(getViewLifecycleOwner(), this::handleMyStoriesResult);
+        viewModel.myStories(preferenceUtils.getRefreshStateOfStories()).observe(getViewLifecycleOwner(), this::handleMyStoriesResult);
         return binding.getRoot();
     }
 
     private void handleMyStoriesResult(Either<Exception, List<Answer>> result) {
+        preferenceUtils.storeRefreshStateOfStories(false);
         binding.progress.hide();
         if (result.isLeft() || !result.getRight().isPresent()) {
             handleNoStories();
