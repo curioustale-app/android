@@ -1,10 +1,12 @@
 package app.curioustale.curioustale.models;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
 import com.google.firebase.Timestamp;
 
 @SuppressWarnings("unused") // required for firebase
+@Keep
 public class Answer {
     private String question;
     private String questionId;

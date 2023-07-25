@@ -1,5 +1,6 @@
 package app.curioustale.curioustale.models;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.Locale;
 import app.curioustale.curioustale.utils.DateTimeUtils;
 
 @SuppressWarnings("ALL")
+@Keep
 public class Insight {
     private String title;
     private String subtitle;

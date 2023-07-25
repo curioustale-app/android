@@ -1,8 +1,11 @@
 package app.curioustale.curioustale.models;
 
+import androidx.annotation.Keep;
+
 import java.util.Date;
 
 @SuppressWarnings("ALL")
+@Keep
 public class User {
     private String userId;
     private Date lastSubmissionDate;

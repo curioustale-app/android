@@ -1,8 +1,11 @@
 package app.curioustale.curioustale.models;
 
+import androidx.annotation.Keep;
+
 import java.util.List;
 
 @SuppressWarnings("ALL")
+@Keep
 public class Question {
     private String title;
     private List<String> tags;
