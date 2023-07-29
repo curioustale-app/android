@@ -1,51 +1,16 @@
-## CuriousTale Android
-
-Android app for curious tale platform
-
-
-### Entities
-
-- User
-  - streak: int
-  - lastSubmissionDate: timestamp
-
-- Question
-  - title: string
-  - tags: string
-
-- Answer
-  - question-id: string
-  - user-id: string
-  - question: string
-  - answer: string
-  - timestamp: timestamp
-
-- Suggestion
-  - suggestion: string
-  - user-id: string
-
-### Datastructure Requirements
-
-- How to get question of the day?
-  - path = <questions>/<yy-mm-dd>/    
-  - output = Question
-
-- How to get all answers of an user?
-  - path = <useranswers>/<user-id>/<answers>/
-  - output = Answer[]
-
-- How to get current streak of the user?
-  - path = <users>/<user-id>/streak
-
-- How will admin see all questions
-  - same as user
-
-- How will admin see all answers of single question
-  - path = <user-answers>/<user-id>/<answers>/<question-id>
-  - output = Answer[]
-  - test = need to check collection group query to do this
-
-- How will I see all suggestions
-  - path = <suggestions>/
-  - output = Suggestion[]
-
+<div align='center'>
+  <img src="https://github.com/curioustale-app/android/assets/35269424/4ee1d2b4-5b7d-45f9-9dc2-89d6a9fde445" alt="logo" />
+  <br />
+  <p>making a change a question at a time</p>
+  <samp>
+    <a href="https://play.google.com/store/apps/details?id=app.curioustale.curioustale" title="play store">play store</a>
+    &#x2022;
+    <a href="https://discord.gg/xb5ecHMDkN" title="discord">discord</a>
+    &#x2022;
+    <a href="https://twitter.com/curioustale_app" title="twitter">twitter</a>
+    &#x2022;
+    <a href="https://medium.com/@curioustale.app" title="medium">medium</a>
+    &#x2022;
+    <a href="https://github.com/curioustale-app/.github" title="info">more info</a>
+  </samp>
+</div>
