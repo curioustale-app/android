@@ -1,5 +1,5 @@
 <div align='center'>
-  <img src="https://github.com/curioustale-app/android/assets/35269424/4ee1d2b4-5b7d-45f9-9dc2-89d6a9fde445" alt="logo" />
+  <img src="https://github.com/curioustale-app/android/assets/138100476/d129e257-121f-4711-962d-60637356c061" alt="logo" />
   <br />
   <p>making a change a question at a time</p>
   <samp>
