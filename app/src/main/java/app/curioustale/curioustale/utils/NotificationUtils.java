@@ -55,6 +55,7 @@ public class NotificationUtils {
         return notificationBuilder
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setSmallIcon(R.drawable.ic_my_stories)
+                .setAutoCancel(true)
                 .setContentIntent(contentIntent)
                 .setContentTitle(context.getString(R.string.notification_title))
                 .setContentText(context.getString(R.string.notification_subtitle))
